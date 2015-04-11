@@ -86,18 +86,11 @@
       console.log(response.data);
 
 
-      // for(var obj in response.data){
-
-      //   console.log(obj);
-
-      //   console.log('obj.0 : ' + obj['0']);
-
-      //   console.log('obj id ' + obj['id']);
-      //   console.log('obj id ' + obj.id);
-      //   console.log('obj likes array ' + obj['likes']);
-      //   console.log('obj likes array ' + obj.likes);
-      // }
-      console.log('response.0 : ' + response.data[0].id);
+      for(var index in response.data){
+        console.log('post ' + index + ' id:' + response.data[index].id);
+        console.log('post ' + index + ' likes:' + response.data[index].likes);
+      }
+      
 
     });
   }
