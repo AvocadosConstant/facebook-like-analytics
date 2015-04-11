@@ -74,6 +74,13 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
+
+  function makeHelpCallback(help) {
+    return function() {
+      console.log(help);
+    };
+  }
+
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
@@ -87,8 +94,13 @@
 
 
       for(var obj in response.data){
-        console.log(obj['id']);
-        console.log(obj['likes']);
+        makeHelpCallback(obj);
+        makeHelpCallback(obj.id);
+        makeHelpCallback(obj.likes);
+
+        // console.log(obj);
+        // console.log(obj['id']);
+        // console.log(obj['likes']);
       }
 
     });
