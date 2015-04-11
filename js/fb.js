@@ -183,3 +183,9 @@ var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
       graphBar(likesPerUser.slice(0,12));
     });
   }
+
+   $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
