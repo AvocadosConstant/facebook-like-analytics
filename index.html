@@ -74,13 +74,6 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-
-  function makeHelpCallback(help) {
-    return function() {
-      console.log(help);
-    };
-  }
-
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
@@ -94,13 +87,12 @@
 
 
       for(var obj in response.data){
-        makeHelpCallback(obj);
-        makeHelpCallback(obj.id);
-        makeHelpCallback(obj.likes);
 
-        // console.log(obj);
-        // console.log(obj['id']);
-        // console.log(obj['likes']);
+        console.log(obj);
+        console.log('obj id ' + obj['id']);
+        console.log('obj id ' + obj.id);
+        console.log('obj likes array ' + obj['likes']);
+        console.log('obj likes array ' + obj.likes);
       }
 
     });
@@ -112,6 +104,8 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+
+<div id="fb-root"></div>
 
 <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">
 button
