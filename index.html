@@ -88,7 +88,12 @@
 
       for(var index in response.data){
         console.log('post ' + index + ' id:' + response.data[index].id);
-        console.log('post ' + index + ' likes:' + response.data[index].likes);
+        //console.log('post ' + index + ' likes:' + response.data[index].likes.data);
+
+        console.log('post ' + index + ' has ' + response.data[index].likes.data.length + 'likes.');
+        for(var likesIndex in response.data[index].likes.data){
+          console.log(response.data[index].likes.data[likesIndex].name);
+        }
       }
       
 
