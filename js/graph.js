@@ -65,6 +65,14 @@ function graphLine(data) {
 function graphBar(data) {
 
   var barData = data;
+
+  var svg = dimple.newSvg("#barGraph", 1000, 600);
+      var chart = new dimple.chart(svg, barData);
+      chart.addCategoryAxis("x", "Word");
+      chart.addMeasureAxis("y", "Awesomeness");
+      chart.addSeries(null, dimple.plot.bar);
+      chart.draw();
+
 // var barData = [{
 //     'x': 1,
 //     'y': 5
@@ -85,63 +93,63 @@ function graphBar(data) {
 //     'y': 60
 //   }];
 
-  var vis = d3.select('#barGraph'),
-    WIDTH = 1000,
-    HEIGHT = 500,
-    MARGINS = {
-      top: 20,
-      right: 20,
-      bottom: 20,
-      left: 50
-    },
-    xRange = d3.scale.ordinal()
-      .rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1)
-      .domain(barData.key)
-    ,
+  // var vis = d3.select('#barGraph'),
+  //   WIDTH = 1000,
+  //   HEIGHT = 500,
+  //   MARGINS = {
+  //     top: 20,
+  //     right: 20,
+  //     bottom: 20,
+  //     left: 50
+  //   },
+  //   xRange = d3.scale.ordinal()
+  //     .rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1)
+  //     .domain(barData.key)
+  //   ,
 
 
-    yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
-      d3.max(barData, function (d) {
-        return d.likes;
-      })
-    ]),
+  //   yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
+  //     d3.max(barData, function (d) {
+  //       return d.likes;
+  //     })
+  //   ]),
 
-    xAxis = d3.svg.axis()
-      .scale(xRange)
-      .tickSize(5)
-      .tickSubdivide(true),
+  //   xAxis = d3.svg.axis()
+  //     .scale(xRange)
+  //     .tickSize(5)
+  //     .tickSubdivide(true),
 
-    yAxis = d3.svg.axis()
-      .scale(yRange)
-      .tickSize(5)
-      .orient("left")
-      .tickSubdivide(true);
+  //   yAxis = d3.svg.axis()
+  //     .scale(yRange)
+  //     .tickSize(5)
+  //     .orient("left")
+  //     .tickSubdivide(true);
 
 
-  vis.append('svg:g')
-    .attr('class', 'x axis')
-    .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
-    .call(xAxis);
+  // vis.append('svg:g')
+  //   .attr('class', 'x axis')
+  //   .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+  //   .call(xAxis);
 
-  vis.append('svg:g')
-    .attr('class', 'y axis')
-    .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
-    .call(yAxis);
+  // vis.append('svg:g')
+  //   .attr('class', 'y axis')
+  //   .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+  //   .call(yAxis);
 
-  vis.selectAll('rect')
-    .data(barData)
-    .enter()
-    .append('rect')
-    .attr('x', function (d, i) {
-      return xRange(barData.key[i]);
-    })
-    .attr('y', function (d) {
-      return yRange(d.likes);
-    })
-    .attr('width', xRange.rangeBand())
-    .attr('height', function (d) {
-      return ((HEIGHT - MARGINS.bottom) - yRange(d.likes));
-    })
-    .attr('fill', 'grey');
+  // vis.selectAll('rect')
+  //   .data(barData)
+  //   .enter()
+  //   .append('rect')
+  //   .attr('x', function (d, i) {
+  //     return xRange(barData.key[i]);
+  //   })
+  //   .attr('y', function (d) {
+  //     return yRange(d.likes);
+  //   })
+  //   .attr('width', xRange.rangeBand())
+  //   .attr('height', function (d) {
+  //     return ((HEIGHT - MARGINS.bottom) - yRange(d.likes));
+  //   })
+  //   .attr('fill', 'grey');
 
 }
