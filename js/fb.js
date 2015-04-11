@@ -85,7 +85,7 @@
         $('<div class= "post" id="post' + index + '" />').text(
 
           'Post ' + index + 
-          '<br> Created on: ' + response.data[index].created_time
+          '<br>' + ' Created on: ' + response.data[index].created_time
 
         ).appendTo('#posts-container');
 

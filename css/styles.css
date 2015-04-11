@@ -1,16 +1,19 @@
 body{
-	background: #aaa;
+	font-family: sans-serif;
+	background: #ccc;
 }
 
 .post{
 	margin: 5px;
 	padding: 5px;
-	background: #ccc;
+	background: #ddd;
+	border-radius: 2px;
 }
 
 .likes{
 	margin: 3px;
 	padding: 3px;
 	background: #eee;
+	border-radius: 2px;
 }
 
