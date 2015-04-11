@@ -76,7 +76,7 @@ var likesPerUser = [];
     FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message,story&limit=200', function(response) {
        console.log('Successful login for: ' + response.name);
        document.getElementById('status').innerHTML =
-         'Thanks for logging in, ' + response.name + '!' + response.;
+         'Thanks for logging in, ' + response.name + '!';
       document.getElementsByTagName('fb:login-button').style.visibility = "hidden";
       console.log(response);
       console.log(response.data);
