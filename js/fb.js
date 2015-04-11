@@ -82,27 +82,27 @@
         //console.log('post ' + index + ' id:' + response.data[index].id);
         console.log('Post ' + index + ' created on:' + response.data[index].created_time);
 
-        $('<div id="post' + index + '" />').text(
+        //$('<div id="post' + index + '" />').text(
 
-          'Post ' + index + 
-          '\n Created on: ' + response.data[index].created_time
+        //   'Post ' + index + 
+        //   '\n Created on: ' + response.data[index].created_time
 
-        ).appendTo('#posts-container');
+        // ).appendTo('#posts-container');
 
-        $('<div id="likes' + index + '" />').appendTo('#post' + index);
+        //$('<div id="likes' + index + '" />').appendTo('#post' + index);
 
         if(response.data[index].likes != undefined){
           console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
 
-          $('<div id="likes' + index + '" />').append('with ' + response.data[index].likes.data.length + ' likes by:');
+          //$('<div id="likes' + index + '" />').append('with ' + response.data[index].likes.data.length + ' likes by:');
 
           for(var likesIndex in response.data[index].likes.data){
             console.log('         ' + response.data[index].likes.data[likesIndex].name);
-            $('<div id="likes' + index + '" />').append('\n' + response.data[index].likes.data[likesIndex].name);
+            //$('<div id="likes' + index + '" />').append('\n' + response.data[index].likes.data[likesIndex].name);
           }
         }
         else{
-          $('<div id="likes' + index + '" />').append('with 0');
+          //$('<div id="likes' + index + '" />').append('with 0');
         }
       }
       
