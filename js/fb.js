@@ -87,10 +87,12 @@ var likesPerUser = [];
 
         $('<div class= "card light-blue lighten-2" id="post' + index + '" />').appendTo('#posts-container');
 
-        $('<span class="card-title"> Post'+ index + ' Created on: ' + response.data[index].created_time +
+        $('<span class="card-title"> Post '+ index + ' Created on: ' + response.data[index].created_time +
           '</span>').appendTo('#post' + index);
 
-        $('<div class= "card light-blue lighten-5" id="likes' + index + '" />').appendTo('#post' + index);
+        $('<div class= "card-content white" id="likes' + index + '" />').appendTo('#post' + index);
+
+
 
         var node = new Object;
         node['x'] = index;
@@ -101,11 +103,11 @@ var likesPerUser = [];
 
           node['y'] = response.data[index].likes.data.length;
 
-          $('#post' + index).append('with ' + response.data[index].likes.data.length + ' likes by:');
+          $('#likes' + index).append('with ' + response.data[index].likes.data.length + ' likes by:');
 
           for(var likesIndex in response.data[index].likes.data){
             console.log('         ' + response.data[index].likes.data[likesIndex].name);
-            $('#post' + index).append('<br>' + response.data[index].likes.data[likesIndex].name);
+            $('#likes' + index).append('<br>' + response.data[index].likes.data[likesIndex].name);
 
             var userExists = false;
 
@@ -127,7 +129,7 @@ var likesPerUser = [];
           }
         }
         else{
-          $('#post' + index).append('with 0 likes');
+          $('#likes' + index).append('with 0 likes');
         }
 
         console.log('node: ' + node);
