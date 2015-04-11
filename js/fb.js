@@ -73,7 +73,7 @@ var likesPerUser = [];
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message}&limit=200', function(response) {
+    FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message&limit=200', function(response) {
       // console.log('Successful login for: ' + response.name);
       // document.getElementById('status').innerHTML =
       //   'Thanks for logging in, ' + response.name + '!' + response.;
