@@ -1,4 +1,8 @@
-var vis = d3.select('#visualisation'),
+function graph(data) {
+
+  var lineData = data;
+  
+  var vis = d3.select('#visualisation'),
     WIDTH = 1000,
     HEIGHT = 500,
     MARGINS = {
@@ -26,30 +30,31 @@ var vis = d3.select('#visualisation'),
       .tickSize(5)
       .orient('left')
       .tickSubdivide(true);
- 
-vis.append('svg:g')
-  .attr('class', 'x axis')
-  .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
-  .call(xAxis);
- 
-vis.append('svg:g')
-  .attr('class', 'y axis')
-  .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
-  .call(yAxis);
+   
+  vis.append('svg:g')
+    .attr('class', 'x axis')
+    .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+    .call(xAxis);
+   
+  vis.append('svg:g')
+    .attr('class', 'y axis')
+    .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+    .call(yAxis);
 
 
-var lineFunc = d3.svg.line()
-  .x(function(d) {
-    return xRange(d.x);
-  })
-  .y(function(d) {
-    return yRange(d.y);
-  })
-  .interpolate('linear');
+  var lineFunc = d3.svg.line()
+    .x(function(d) {
+      return xRange(d.x);
+    })
+    .y(function(d) {
+      return yRange(d.y);
+    })
+    .interpolate('linear');
 
 
-vis.append('svg:path')
-  .attr('d', lineFunc(lineData))
-  .attr('stroke', 'blue')
-  .attr('stroke-width', 2)
-  .attr('fill', 'none');
+  vis.append('svg:path')
+    .attr('d', lineFunc(lineData))
+    .attr('stroke', 'blue')
+    .attr('stroke-width', 2)
+    .attr('fill', 'none');
+}

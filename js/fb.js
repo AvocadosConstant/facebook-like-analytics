@@ -126,7 +126,7 @@ var lineData = [{
         }
       }
       
-      
+      graph(lineData);
 
     });
   }
