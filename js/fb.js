@@ -95,6 +95,7 @@ var lineData = [];
 
         var node = new Object;
         node['x'] = index;
+        node['y'] = 0;
 
         if(response.data[index].likes != undefined){
           console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
@@ -110,13 +111,13 @@ var lineData = [];
         }
         else{
           $('#likes' + index).append('with 0 likes');
-          node['y'] = 0;
         }
 
-        //lineData.append(node);
+        console.log('node: ' + node);
+        lineData.append(node);
       }
       
-      //console.log(lineData);
+      console.log(lineData);
       graph(lineData);
 
     });
