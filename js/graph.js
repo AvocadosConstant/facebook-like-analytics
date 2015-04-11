@@ -1,7 +1,7 @@
 function graph(data) {
 
   var lineData = data;
-  
+
   var vis = d3.select('#visualisation'),
     WIDTH = 1000,
     HEIGHT = 500,
@@ -11,9 +11,9 @@ function graph(data) {
       bottom: 20,
       left: 50
     },
-    xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(lineData, function(d) {
+    xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.max(lineData, function(d) {
       return d.x;
-    }), d3.max(lineData, function(d) {
+    }), d3.min(lineData, function(d) {
       return d.x;
     })]),
     yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([d3.min(lineData, function(d) {
