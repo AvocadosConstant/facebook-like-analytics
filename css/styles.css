@@ -1,0 +1,16 @@
+body{
+	background: #aaa;
+}
+
+.post{
+	margin: 5px;
+	padding: 5px;
+	background: #ccc;
+}
+
+.likes{
+	margin: 3px;
+	padding: 3px;
+	background: #eee;
+}
+

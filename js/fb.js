@@ -82,14 +82,14 @@
         //console.log('post ' + index + ' id:' + response.data[index].id);
         console.log('Post ' + index + ' created on:' + response.data[index].created_time);
 
-        $('<div id="post' + index + '" />').text(
+        $('<div class= "post" id="post' + index + '" />').text(
 
           'Post ' + index + 
-          '\n Created on: ' + response.data[index].created_time
+          '<br> Created on: ' + response.data[index].created_time
 
         ).appendTo('#posts-container');
 
-        $('<div id="likes' + index + '" />').appendTo('#post' + index);
+        $('<div class= "likes" id="likes' + index + '" />').appendTo('#post' + index);
 
         if(response.data[index].likes != undefined){
           console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
@@ -98,11 +98,11 @@
 
           for(var likesIndex in response.data[index].likes.data){
             console.log('         ' + response.data[index].likes.data[likesIndex].name);
-            $('#likes' + index).append('\n' + response.data[index].likes.data[likesIndex].name);
+            $('#likes' + index).append('<br>' + response.data[index].likes.data[likesIndex].name);
           }
         }
         else{
-          $('#likes' + index).append('with 0');
+          $('#likes' + index).append('with 0 likes');
         }
       }
       
