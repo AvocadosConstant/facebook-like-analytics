@@ -85,14 +85,14 @@ var likesPerUser = [];
         //console.log('post ' + index + ' id:' + response.data[index].id);
         console.log('Post ' + index + ' created on:' + response.data[index].created_time);
 
-        $('<div class= "post" id="post' + index + '" />').text(
+        $('<div class= "card light-blue lighten-2" id="post' + index + '" />').text(
 
           'Post ' + index + 
           '<br>' + ' Created on: ' + response.data[index].created_time
 
         ).appendTo('#posts-container');
 
-        $('<div class= "likes" id="likes' + index + '" />').appendTo('#post' + index);
+        $('<div class= "card light-blue lighten-5" id="likes' + index + '" />').appendTo('#post' + index);
 
         var node = new Object;
         node['x'] = index;
