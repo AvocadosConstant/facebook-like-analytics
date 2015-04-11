@@ -1,5 +1,5 @@
-var lineData = [];
-var likeFreq = [];
+var likesPerPost = [];
+var likesPerUser = [];
 
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -111,9 +111,9 @@ var likeFreq = [];
 
             var userExists = false;
 
-            for(var lfIndex in likeFreq){
-              if(likeFreq[lfIndex].name == response.data[index].likes.data[likesIndex].name){
-                likeFreq[lfIndex].likes++;
+            for(var lfIndex in likesPerUser){
+              if(likesPerUser[lfIndex].name == response.data[index].likes.data[likesIndex].name){
+                likesPerUser[lfIndex].likes++;
                 userExists = true;
               }
             }
@@ -123,7 +123,7 @@ var likeFreq = [];
               user['name'] = response.data[index].likes.data[likesIndex].name;
               user['likes'] = 1;
 
-              likeFreq.push(user);
+              likesPerUser.push(user);
             }
 
           }
@@ -133,15 +133,14 @@ var likeFreq = [];
         }
 
         console.log('node: ' + node);
-        lineData.push(node);
+        likesPerPost.push(node);
       }
       
-      console.log(lineData);
+      console.log(likesPerPost);
+      graphLine(likesPerPost);
 
-      likeFreq.sort(function(a,b){return b.likes - a.likes});
-
-      console.log(likeFreq);
-      graphLine(lineData);
-
+      likesPerUser.sort(function(a,b){return b.likes - a.likes});
+      console.log(likesPerUser);
+      graphBar(likesPerUser);
     });
   }
