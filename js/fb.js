@@ -100,7 +100,7 @@ var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
     });
 
     FB.api('me/picture?type=large&redirect=false', function(response) {
-      $('<img src="' + response.url + '" class="profile-picture"').appendTo('#user-info');
+      $('<img src="' + response.data[1] + '" class="profile-picture">').appendTo('#user-info');
     });
 
     FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message,story&limit=200', function(response) {
