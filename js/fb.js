@@ -141,6 +141,6 @@ var likesPerUser = [];
 
       likesPerUser.sort(function(a,b){return b.likes - a.likes});
       console.log(likesPerUser);
-      graphBar(likesPerUser);
+      graphBar(likesPerUser.slice(0,12));
     });
   }
