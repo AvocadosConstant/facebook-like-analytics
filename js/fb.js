@@ -114,7 +114,7 @@ var lineData = [];
         }
 
         console.log('node: ' + node);
-        lineData.append(node);
+        lineData.push(node);
       }
       
       console.log(lineData);
