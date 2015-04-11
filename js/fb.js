@@ -94,15 +94,15 @@
         if(response.data[index].likes != undefined){
           console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
 
-          $('likes' + index).append('with ' + response.data[index].likes.data.length + ' likes by:');
+          $('#likes' + index).append('with ' + response.data[index].likes.data.length + ' likes by:');
 
           for(var likesIndex in response.data[index].likes.data){
             console.log('         ' + response.data[index].likes.data[likesIndex].name);
-            $('likes' + index).append('\n' + response.data[index].likes.data[likesIndex].name);
+            $('#likes' + index).append('\n' + response.data[index].likes.data[likesIndex].name);
           }
         }
         else{
-          $('likes' + index).append('with 0');
+          $('#likes' + index).append('with 0');
         }
       }
       
