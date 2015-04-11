@@ -1,3 +1,5 @@
+var lineData = [];
+
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -106,7 +108,7 @@
         }
       }
       
-      var lineData = [{
+      lineData = [{
         x: 1,
         y: 5
       }, {
