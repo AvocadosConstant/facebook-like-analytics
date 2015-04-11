@@ -118,18 +118,18 @@ var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
         //console.log('post ' + index + ' id:' + response.data[index].id);
         console.log('Post ' + index + ' created on:' + response.data[index].created_time);
 
-        $('<div class= "card light-blue lighten-2" id="post' + index + '" />').appendTo('#posts-container');
+        $('<li id="post' + index + '" ></li>').appendTo('#posts-container');
 
         //$('<span class="card-title"> Post '+ index + ' Created on: ' + response.data[index].created_time + '</span>').appendTo('#post' + index);
 
         if(response.data[index].message == undefined) {
-          $('<span style="margin-left:4px" class="card-title">' + response.data[index].story + '</span>').appendTo('#post' + index);
+          $('<div class="collapsible-header" id="post' + index + 'header">' + response.data[index].story + '</div>').appendTo('#post' + index);
         }
         else {
-          $('<span style="margin-left:4px" class="card-title">' + response.data[index].message + '</span>').appendTo('#post' + index);
+          $('<div class="collapsible-header id="post' + index + 'header">' + response.data[index].message + '</div>').appendTo('#post' + index);
         }
 
-        $('<div class= "card-content white" id="likes' + index + '" />').appendTo('#post' + index);
+        $('<div class="collapsible-body" id="likes' + index + '"></div>').appendTo('#post' + index);
 
 
 
@@ -142,7 +142,7 @@ var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
 
           node['y'] = response.data[index].likes.data.length;
 
-          $('#likes' + index).append('with ' + response.data[index].likes.data.length + ' likes by:');
+          $('#post' + index + 'header').append(response.data[index].likes.data.length + 'likes');
 
           for(var likesIndex in response.data[index].likes.data){
             console.log('         ' + response.data[index].likes.data[likesIndex].name);
@@ -168,7 +168,7 @@ var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
           }
         }
         else{
-          $('#likes' + index).append('with 0 likes');
+          $('#post' + index + 'header').append(' 0 likes');
         }
 
         console.log('node: ' + node);
