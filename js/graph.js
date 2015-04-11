@@ -64,27 +64,27 @@ function graphLine(data) {
 
 function graphBar(data) {
 
-  //var barData = data;
-var barData = [{
-    'x': 1,
-    'y': 5
-  }, {
-    'x': 20,
-    'y': 20
-  }, {
-    'x': 40,
-    'y': 10
-  }, {
-    'x': 60,
-    'y': 40
-  }, {
-    'x': 80,
-    'y': 5
-  }, {
-    'x': 100,
-    'y': 60
-  }];
-  
+  var barData = data;
+// var barData = [{
+//     'x': 1,
+//     'y': 5
+//   }, {
+//     'x': 20,
+//     'y': 20
+//   }, {
+//     'x': 40,
+//     'y': 10
+//   }, {
+//     'x': 60,
+//     'y': 40
+//   }, {
+//     'x': 80,
+//     'y': 5
+//   }, {
+//     'x': 100,
+//     'y': 60
+//   }];
+
   var vis = d3.select('#barGraph'),
     WIDTH = 1000,
     HEIGHT = 500,
@@ -94,14 +94,15 @@ var barData = [{
       bottom: 20,
       left: 50
     },
-    xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barData.map(function (d) {
-      return d.x;
-    })),
+    xRange = d3.scale.ordinal()
+      .rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1)
+      .domain(barData.key)
+    ,
 
 
     yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
       d3.max(barData, function (d) {
-        return d.y;
+        return d.likes;
       })
     ]),
 
@@ -131,15 +132,15 @@ var barData = [{
     .data(barData)
     .enter()
     .append('rect')
-    .attr('x', function (d) {
-      return xRange(d.x);
+    .attr('x', function (d, i) {
+      return xRange(barData.key[i]);
     })
     .attr('y', function (d) {
-      return yRange(d.y);
+      return yRange(d.likes);
     })
     .attr('width', xRange.rangeBand())
     .attr('height', function (d) {
-      return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
+      return ((HEIGHT - MARGINS.bottom) - yRange(d.likes));
     })
     .attr('fill', 'grey');
 
