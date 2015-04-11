@@ -1,37 +1,112 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Facebook Login JavaScript Example</title>
+    <title>Facebook Like Analytics</title>
     <meta charset="UTF-8">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+    
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+
   </head>
 
   <body>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
-    <script src="js/jquery-1.11.2.min.js"></script>
+
     <script src="js/fb.js"></script>
-
-    <link href="css/styles.css" rel="stylesheet">
-
     <!--
       Below we include the Login Button social plugin. This button uses
       the JavaScript SDK to present a graphical Login button that triggers
       the FB.login() function when clicked.
     -->
 
-    <div id="fb-root"></div>
+    
 
-    <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">button</fb:login-button>
+    
 
-    <div id="status"></div>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Navbar Link</a></li>
+          </ul>
 
-    <svg id="lineGraph" width="1000" height="600"></svg>
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">Navbar Link</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </nav>
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <br><br>
+          <h1 class="header center orange-text">Like Analytics</h1>
+          <div class="row center">
+            <h5 class="header col s12 light">Placeholder text dank schemes.</h5>
+          </div>
+          <div class="row center">
+            <div id="fb-root"></div>
+            <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">button</fb:login-button>
+            <div id="status"></div>
+          </div>
+          <br><br>
 
-    <svg id="barGraph" width="1000" height="600"></svg>
+        </div>
+      </div>
 
-    <div id="posts-container"></div>
+
+      <div class="container">
+        <div class="section">
+
+          <svg id="lineGraph" width="1000" height="600"></svg>
+          <svg id="barGraph" width="1000" height="600"></svg>
+
+          <div id="posts-container"></div>
+
+        </div>
+      </div>
+
+      <footer class="page-footer orange">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Company Bio</h5>
+              <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+            </div>
+            <div class="col l3 s12">
+              <h5 class="white-text">Settings</h5>
+              <ul>
+                <li><a class="white-text" href="#!">Link 1</a></li>
+                <li><a class="white-text" href="#!">Link 2</a></li>
+                <li><a class="white-text" href="#!">Link 3</a></li>
+                <li><a class="white-text" href="#!">Link 4</a></li>
+              </ul>
+            </div>
+            <div class="col l3 s12">
+              <h5 class="white-text">Connect</h5>
+              <ul>
+                <li><a class="white-text" href="#!">Link 1</a></li>
+                <li><a class="white-text" href="#!">Link 2</a></li>
+                <li><a class="white-text" href="#!">Link 3</a></li>
+                <li><a class="white-text" href="#!">Link 4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+          </div>
+        </div>
+      </footer>
+
 
     <script src="js/graph.js"></script>
-
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
   </body>
 </html>
