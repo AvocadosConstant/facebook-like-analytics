@@ -64,8 +64,27 @@ function graphLine(data) {
 
 function graphBar(data) {
 
-  var barData = data;
-
+  //var barData = data;
+var barData = [{
+    'x': 1,
+    'y': 5
+  }, {
+    'x': 20,
+    'y': 20
+  }, {
+    'x': 40,
+    'y': 10
+  }, {
+    'x': 60,
+    'y': 40
+  }, {
+    'x': 80,
+    'y': 5
+  }, {
+    'x': 100,
+    'y': 60
+  }];
+  
   var vis = d3.select('#barGraph'),
     WIDTH = 1000,
     HEIGHT = 500,
