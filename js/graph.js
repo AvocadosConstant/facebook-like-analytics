@@ -2,7 +2,7 @@ function graphLine(data) {
 
   var lineData = data;
 
-  var svg = dimple.newSvg("#lineGraph", 1000, 600);
+  var svg = dimple.newSvg("#lineGraph", 800, 400);
   var myChart = new dimple.chart(svg, lineData);
   myChart.addCategoryAxis("x", "x");
   myChart.addMeasureAxis("y", "y");
