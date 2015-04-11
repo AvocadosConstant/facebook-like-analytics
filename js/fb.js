@@ -114,8 +114,11 @@ var lineData = [];
           //lineData.append({x:index,y:0});
           node['y'] = 0;
         }
+
+        lineData.append(node);
       }
       
+      console.log(lineData);
       graph(lineData);
 
     });
