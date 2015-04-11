@@ -2,12 +2,21 @@ function graphLine(data) {
 
   var lineData = data;
 
-  var svg = dimple.newSvg("#lineGraph", 800, 400);
-  var myChart = new dimple.chart(svg, lineData);
-  myChart.addCategoryAxis("x", "x");
-  myChart.addMeasureAxis("y", "y");
-  myChart.addSeries("Likes per post", dimple.plot.line);
-  myChart.draw();
+   var svg = dimple.newSvg("#lineGraph", 800, 400);
+  // var myChart = new dimple.chart(svg, lineData);
+  // myChart.addCategoryAxis("x", "x");
+  // myChart.addMeasureAxis("y", "y");
+  // myChart.addSeries("Likes per post", dimple.plot.line);
+  // myChart.draw();
+
+    
+      var myChart = new dimple.chart(svg, lineData);
+      myChart.setBounds(60, 30, 505, 305);
+      var x = myChart.addCategoryAxis("x", 'x');
+      x.addOrderRule("Date");
+      myChart.addMeasureAxis("y", 'y');
+      var s = myChart.addSeries(null, dimple.plot.line);
+      myChart.draw();
 
   // var vis = d3.select('#lineGraph'),
   //   WIDTH = 1000,
