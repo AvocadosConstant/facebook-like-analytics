@@ -6,6 +6,7 @@
   </head>
 
   <body>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/fb.js"></script>
     <link href="css/styles.css" rel="stylesheet">
@@ -21,6 +22,8 @@
     <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">button</fb:login-button>
 
     <div id="status"></div>
+
+    <svg id="visualisation" width="1000" height="500"></svg>
 
     <div id="posts-container"></div>
 
