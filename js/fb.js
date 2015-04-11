@@ -80,7 +80,7 @@
 
       for(var index in response.data){
         //console.log('post ' + index + ' id:' + response.data[index].id);
-        console.log('Post ' + index + ' created on:' + response.data[index].created_time);
+        //console.log('Post ' + index + ' created on:' + response.data[index].created_time);
 
         //$('<div id="post' + index + '" />').text(
 
