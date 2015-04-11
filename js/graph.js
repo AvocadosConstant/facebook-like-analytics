@@ -68,8 +68,8 @@ function graphBar(data) {
 
   var svg = dimple.newSvg("#barGraph", 1000, 600);
       var chart = new dimple.chart(svg, barData);
-      chart.addCategoryAxis("x", "Word");
-      chart.addMeasureAxis("y", "Awesomeness");
+      chart.addCategoryAxis("x", "name");
+      chart.addMeasureAxis("y", "likes");
       chart.addSeries(null, dimple.plot.bar);
       chart.draw();
 
