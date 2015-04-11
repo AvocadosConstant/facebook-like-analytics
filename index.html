@@ -7,6 +7,7 @@
 
   <body>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/fb.js"></script>
 
@@ -31,6 +32,20 @@
     <div id="posts-container"></div>
 
     <script src="js/graph.js"></script>
+
+    
+    <script type="text/javascript">
+      var svg = dimple.newSvg("body", 800, 600);
+      var data = [
+        { "Word":"Hello", "Awesomeness":2000 },
+        { "Word":"World", "Awesomeness":3000 }
+      ];
+      var chart = new dimple.chart(svg, data);
+      chart.addCategoryAxis("x", "Word");
+      chart.addMeasureAxis("y", "Awesomeness");
+      chart.addSeries(null, dimple.plot.bar);
+      chart.draw();
+    </script>
 
   </body>
 </html>
