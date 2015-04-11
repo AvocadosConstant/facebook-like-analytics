@@ -113,7 +113,7 @@ var lineData = [];
           node['y'] = 0;
         }
 
-        lineData.append(node);
+        //lineData.append(node);
       }
       
       //console.log(lineData);
