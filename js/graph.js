@@ -19,7 +19,7 @@ function graphLine(data) {
       // myChart.draw();
 
   var vis = d3.select('#lineGraph'),
-    WIDTH = 600,
+    WIDTH = 700,
     HEIGHT = 400,
     MARGINS = {
       top: 20,
@@ -82,7 +82,7 @@ function graphBar(data) {
 
   var barData = data;
 
-  var svg = dimple.newSvg("#barGraph", 600, 400);
+  var svg = dimple.newSvg("#barGraph", 700, 400);
       var chart = new dimple.chart(svg, barData);
       chart.addCategoryAxis("x", "name");
       chart.addMeasureAxis("y", "likes");
