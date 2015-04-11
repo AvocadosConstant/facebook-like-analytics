@@ -89,7 +89,7 @@ var likesPerUser = [];
 
         //$('<span class="card-title"> Post '+ index + ' Created on: ' + response.data[index].created_time + '</span>').appendTo('#post' + index);
 
-        $('<span style="margin: 0 4px;" class="card-title">' response.data[index].message '</span>').appendTo('#post' + index);
+        $('<span style="margin-left:4px" class="card-title">' response.data[index].message '</span>').appendTo('#post' + index);
 
         $('<div class= "card-content white" id="likes' + index + '" />').appendTo('#post' + index);
 
