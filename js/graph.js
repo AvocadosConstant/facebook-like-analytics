@@ -1,8 +1,8 @@
-function graph(data) {
+function graphLine(data) {
 
   var lineData = data;
 
-  var vis = d3.select('#visualisation'),
+  var vis = d3.select('#lineGraph'),
     WIDTH = 1000,
     HEIGHT = 500,
     MARGINS = {

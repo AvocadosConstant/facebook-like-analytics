@@ -1,4 +1,5 @@
 var lineData = [];
+var likeFreq = [];
 
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -107,6 +108,24 @@ var lineData = [];
           for(var likesIndex in response.data[index].likes.data){
             console.log('         ' + response.data[index].likes.data[likesIndex].name);
             $('#likes' + index).append('<br>' + response.data[index].likes.data[likesIndex].name);
+
+            var userExists = false;
+
+            for(var lfIndex in likeFreq){
+              if(likeFreq[lfIndex].name == response.data[index].likes.data[likesIndex].name){
+                likeFreq[lfIndex].likes++;
+                userExists = true;
+              }
+            }
+
+            if(userExists == false){
+              var user = new Object;
+              user['name'] = response.data[index].likes.data[likesIndex].name;
+              user['likes'] = 1;
+
+              likeFreq.push(user);
+            }
+
           }
         }
         else{
@@ -118,7 +137,8 @@ var lineData = [];
       }
       
       console.log(lineData);
-      graph(lineData);
+      console.log(likeFreq);
+      graphLine(lineData);
 
     });
   }
