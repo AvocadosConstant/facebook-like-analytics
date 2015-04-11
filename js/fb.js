@@ -1,6 +1,27 @@
 var likesPerPost = [];
 var likesPerUser = [];
 
+
+//Converts fb created_time to human understandable time ago
+function timeAgo(time){
+var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
+  diff = (((new Date()).getTime() - date.getTime()) / 1000),
+  day_diff = Math.floor(diff / 86400);
+
+  if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+    return;
+
+  return day_diff == 0 && (
+    diff < 60 && "just now" ||
+    diff < 120 && "1 minute ago" ||
+    diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+    diff < 7200 && "1 hour ago" ||
+    diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+    day_diff == 1 && "Yesterday" ||
+    day_diff < 7 && day_diff + " days ago" ||
+    day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+}
+
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -73,6 +94,15 @@ var likesPerUser = [];
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
+
+    FB.api('me/?fields=name', function(response) {
+      $('<h1>' + response.name + '</h1>').appendTo('#user-info');
+    });
+
+    FB.api('me/picture?type=large&redirect=false', function(response) {
+      $('<img src="' + response.url + '" class="profile-picture"').appendTo('#user-info');
+    });
+
     FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message,story&limit=200', function(response) {
        //console.log('Successful login for: ' + response.name);
        document.getElementById('status').innerHTML =
