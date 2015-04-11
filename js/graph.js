@@ -13,7 +13,7 @@ function graphLine(data) {
       var myChart = new dimple.chart(svg, lineData);
       myChart.setBounds(60, 30, 505, 305);
       var x = myChart.addCategoryAxis("x", 'x');
-      x.addOrderRule("Date");
+      x.addOrderRule("Value");
       myChart.addMeasureAxis("y", 'y');
       var s = myChart.addSeries(null, dimple.plot.line);
       myChart.draw();
