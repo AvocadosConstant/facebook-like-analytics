@@ -96,7 +96,7 @@ var lineData = [];
         if(response.data[index].likes != undefined){
           console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
 
-          lineData.append('{x:' + index + ', y:' + response.data[index].likes.data.length '}');
+          lineData.append({x:index, y:response.data[index].likes.data.length});
 
           $('#likes' + index).append('with ' + response.data[index].likes.data.length + ' likes by:');
 
@@ -107,7 +107,7 @@ var lineData = [];
         }
         else{
           $('#likes' + index).append('with 0 likes');
-          lineData.append('{x:' + index + ', y:0}');
+          lineData.append({x:index,y:0});
         }
       }
       
