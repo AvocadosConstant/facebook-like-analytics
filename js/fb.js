@@ -138,7 +138,7 @@ var likeFreq = [];
       
       console.log(lineData);
 
-      likeFreq.sort(function(a,b){return a.likes - b.likes});
+      likeFreq.sort(function(a,b){return b.likes - a.likes});
 
       console.log(likeFreq);
       graphLine(lineData);
