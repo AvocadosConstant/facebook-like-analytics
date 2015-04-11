@@ -82,7 +82,12 @@
       // console.log('Successful login for: ' + response.name);
       // document.getElementById('status').innerHTML =
       //   'Thanks for logging in, ' + response.name + '!' + response.;
-      console.log(response);
+      //console.log(response);
+
+      for(obj in response){
+        console.log(obj.likes);
+      }
+
     });
   }
 </script>
