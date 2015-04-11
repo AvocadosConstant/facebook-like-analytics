@@ -73,7 +73,7 @@ var likesPerUser = [];
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message&limit=200', function(response) {
+    FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message,story&limit=200', function(response) {
       // console.log('Successful login for: ' + response.name);
       // document.getElementById('status').innerHTML =
       //   'Thanks for logging in, ' + response.name + '!' + response.;
@@ -89,7 +89,12 @@ var likesPerUser = [];
 
         //$('<span class="card-title"> Post '+ index + ' Created on: ' + response.data[index].created_time + '</span>').appendTo('#post' + index);
 
-        $('<span style="margin-left:4px" class="card-title">' + response.data[index].message + '</span>').appendTo('#post' + index);
+        if(response.data[index].message == undefined) {
+          $('<span style="margin-left:4px" class="card-title">' + response.data[index].story + '</span>').appendTo('#post' + index);
+        }
+        else {
+          $('<span style="margin-left:4px" class="card-title">' + response.data[index].message + '</span>').appendTo('#post' + index);
+        }
 
         $('<div class= "card-content white" id="likes' + index + '" />').appendTo('#post' + index);
 
