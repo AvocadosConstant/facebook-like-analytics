@@ -95,6 +95,8 @@ var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
 
+    $('#index-banner').hide();
+
     FB.api('me/?fields=name', function(response) {
       $('<h1>' + response.name + '</h1>').appendTo('#user-info');
     });
