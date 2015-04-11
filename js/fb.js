@@ -77,7 +77,7 @@ var likesPerUser = [];
        console.log('Successful login for: ' + response.name);
        document.getElementById('status').innerHTML =
          'Thanks for logging in, ' + response.name + '!';
-      document.getElementsByTagName('fb:login-button').style.visibility = "hidden";
+      //document.getElementsByTagName('fb:login-button').style.visibility = "hidden";
       console.log(response);
       console.log(response.data);
 
