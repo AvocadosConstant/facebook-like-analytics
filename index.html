@@ -87,13 +87,13 @@
 
 
       for(var index in response.data){
-        console.log('post ' + index + ' id:' + response.data[index].id);
-        //console.log('post ' + index + ' likes:' + response.data[index].likes.data);
+        //console.log('post ' + index + ' id:' + response.data[index].id);
+        console.log('Post ' + index + ' created on:' + response.data[index].likes.created_time);
 
         if(response.data[index].likes != undefined){
-          console.log('post ' + index + ' has ' + response.data[index].likes.data.length + 'likes.');
+          console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
           for(var likesIndex in response.data[index].likes.data){
-            console.log(response.data[index].likes.data[likesIndex].name);
+            console.log('         ' + response.data[index].likes.data[likesIndex].name);
           }
         }
       }
