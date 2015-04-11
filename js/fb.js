@@ -89,7 +89,7 @@
 
         ).appendTo('#posts-container');
 
-        $('<div id="likes' + index + '" />').appendTo('#post' + i);
+        $('<div id="likes' + index + '" />').appendTo('#post' + index);
 
         if(response.data[index].likes != undefined){
           console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
