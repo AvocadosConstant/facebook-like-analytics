@@ -123,10 +123,10 @@ function testAPI() {
       //$('<span class="card-title"> Post '+ index + ' Created on: ' + response.data[index].created_time + '</span>').appendTo('#post' + index);
 
       if(response.data[index].message == undefined) {
-        $('<div class="collapsible-header" id="post' + index + 'header">' + response.data[index].story + '</div>').appendTo('#post' + index);
+        $('<div class="collapsible-header light-blue lighten-2 white-text" id="post' + index + 'header">' + response.data[index].story + '</div>').appendTo('#post' + index);
       }
       else {
-        $('<div class="collapsible-header id="post' + index + 'header">' + response.data[index].message + '</div>').appendTo('#post' + index);
+        $('<div class="collapsible-header light-blue lighten-2 white-text" id="post' + index + 'header">' + response.data[index].message + '</div>').appendTo('#post' + index);
       }
 
       $('<div class="collapsible-body" id="likes' + index + '"></div>').appendTo('#post' + index);
@@ -174,7 +174,7 @@ function testAPI() {
       console.log('node: ' + node);
       likesPerPost.push(node);
     }
-    
+
     $(document).ready(function(){
       $('.collapsible').collapsible({
         accordion : true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
