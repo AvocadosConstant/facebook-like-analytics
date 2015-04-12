@@ -123,13 +123,13 @@ function testAPI() {
       //$('<span class="card-title"> Post '+ index + ' Created on: ' + response.data[index].created_time + '</span>').appendTo('#post' + index);
 
       if(response.data[index].message == undefined) {
-        $('<div class="collapsible-header" id="post' + index + 'header">' + response.data[index].story + '</div>').appendTo('#post' + index);
+        $('<div class="collapsible-header truncate" id="post' + index + 'header">' + response.data[index].story + '</div>').appendTo('#post' + index);
       }
       else {
-        $('<div class="collapsible-header" id="post' + index + 'header">' + response.data[index].message + '</div>').appendTo('#post' + index);
+        $('<div class="collapsible-header truncate" id="post' + index + 'header">' + response.data[index].message + '</div>').appendTo('#post' + index);
       }
 
-      $('<div class="collapsible-body" id="likes' + index + '"></div>').appendTo('#post' + index);
+      
 
 
 
@@ -138,11 +138,14 @@ function testAPI() {
       node['y'] = 0;
 
       if(response.data[index].likes != undefined){
+
+        $('<div class="collapsible-body" id="likes' + index + '"></div>').appendTo('#post' + index);
+
         console.log('    with ' + response.data[index].likes.data.length + ' likes by:');
 
         node['y'] = response.data[index].likes.data.length;
 
-        $('#post' + index + 'header').append(response.data[index].likes.data.length + 'likes');
+        $('#post' + index + 'header').append(response.data[index].likes.data.length + ' likes');
 
         for(var likesIndex in response.data[index].likes.data){
           console.log('         ' + response.data[index].likes.data[likesIndex].name);
