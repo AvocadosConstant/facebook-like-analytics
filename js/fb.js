@@ -147,9 +147,11 @@ function testAPI() {
 
         $('#post' + index + 'header').append(response.data[index].likes.data.length + ' likes');
 
+        $('#likes' + index).append('<p>');
+
         for(var likesIndex in response.data[index].likes.data){
           console.log('         ' + response.data[index].likes.data[likesIndex].name);
-          $('#likes' + index).append('<br>' + response.data[index].likes.data[likesIndex].name);
+          $('#likes' + index).append(response.data[index].likes.data[likesIndex].name + '<br>');
 
           var userExists = false;
 
@@ -169,6 +171,7 @@ function testAPI() {
           }
 
         }
+        $('#likes' + index).append('</p>');
       }
       else{
         $('#post' + index + 'header').append(' 0 likes');
