@@ -103,6 +103,8 @@ function testAPI() {
 
   FB.api('me/picture?type=large&redirect=false', function(response) {
     $('<img src="' + response.data[1] + '" class="profile-picture">').appendTo('#user-info');
+    console.log('profile picture response:')
+    console.log(response);
   });
 
   FB.api('me/posts?fields=id,likes{name},comments{like_count,likes,message},message,story&limit=200', function(response) {
